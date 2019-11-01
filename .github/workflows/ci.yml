@@ -1,5 +1,9 @@
-name: "Provider for Google Calendar"
-on: [push,pull_request]
+name: "Checkin"
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
