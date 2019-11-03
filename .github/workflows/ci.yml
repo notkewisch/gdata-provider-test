@@ -1,3 +1,8 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+# Portions Copyright (C) Philipp Kewisch, 2019
+---
 name: "Checkin"
 on:
   push:
@@ -15,11 +20,16 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
+      - name: "npm ci"
+        run: npm ci
+
       - name: "commit lint"
         run: npx commitlint --from $GITHUB_SHA^
 
       - name: "ESLint"
-        uses: gimenete/eslint-action@1.0
+        uses: kewisch/action-yet-another-eslint@v1
+        with:
+          extensions: "js,jsm"
 
   build:
     name: "Build"
