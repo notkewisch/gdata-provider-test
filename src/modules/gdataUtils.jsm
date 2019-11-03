@@ -53,6 +53,7 @@ function getGoogleId(aItem, aOfflineStorage) {
     getItemMetadata(aOfflineStorage, aItem) || getItemMetadata(aOfflineStorage, aItem.parentItem);
   let baseId = meta ? meta.path : aItem.id.replace("@google.com", "");
   if (aItem.recurrenceId) {
+
     let recSuffix = "_" + aItem.recurrenceId.getInTimezone(cal.dtz.UTC).icalString;
     if (!baseId.endsWith(recSuffix)) {
       baseId += recSuffix;
@@ -71,7 +72,8 @@ function getGoogleId(aItem, aOfflineStorage) {
 function saveItemMetadata(aOfflineStorage, aId, aMetadata) {
   // Save metadata using the same format as for the CalDAV provider, this
   // will make things easier when upgrading to the new item based metadata.
-  let meta = [aMetadata.etag, aMetadata.path, false].join("\u001A");
+  let meta = [aMetadata.etag, 
+aMetadata.path, false].join("\u001A");
   aOfflineStorage.setMetaData(aId, meta);
 }
 
@@ -151,7 +153,7 @@ function getItemMetadata(aOfflineStorage, aItem) {
 function dateToJSON(aDate) {
   let jsonData = {};
   let tzid = aDate.timezone.tzid;
-  jsonData[aDate.isDate ? "date" : "dateTime"] = cal.dtz.toRFC3339(aDate);
+  jsonData[aDate.isDate ?"date" : "dateTime"] = cal.dtz.toRFC3339(aDate);
   if (!aDate.isDate && tzid != "floating") {
     if (tzid in windowsTimezoneMap) {
       // A Windows timezone, likely an outlook invitation.
