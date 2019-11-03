@@ -15,11 +15,14 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
+      - name: "npm install"
+        run: npm install
+
       - name: "commit lint"
         uses: wagoid/commitlint-github-action@v1.2.2
 
       - name: "ESLint"
-        uses: gimenete/eslint-action@1.0
+        run: npx @neovici/github-actions-eslint-annotator
 
   build:
     name: "Build"

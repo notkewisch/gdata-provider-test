@@ -28,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@neovici/github-actions-eslint-annotator": "^0.3.0",
     "action-thunderbird-tests": "github:kewisch/action-thunderbird-tests#master",
     "bump-file": "^2.0.0",
     "conventional-changelog-cli": "^2.0.25",
