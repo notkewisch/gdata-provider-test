@@ -8,7 +8,7 @@ if (!("Cc" in this)) {
   const { classes: Cc, interfaces: Ci, results: Cr, utils: Cu } = Components;
 }
 
-var { LOGitem, LOGverbose, stringException } = ChromeUtils.import(
+{ LOGitem, LOGverbose, stringException } = ChromeUtils.import(
   "resource://gdata-provider/modules/gdataLogging.jsm"
 );
 var { calGoogleRequest } = ChromeUtils.import("resource://gdata-provider/modules/gdataRequest.jsm");
