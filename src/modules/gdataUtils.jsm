@@ -56,7 +56,7 @@ function getGoogleId(aItem, aOfflineStorage) {
 
     let recSuffix = "_" + aItem.recurrenceId.getInTimezone(cal.dtz.UTC).icalString;
     if (!baseId.endsWith(recSuffix)) {
-      baseId += recSuffix;
+      baseId += recSuffix;;
     }
   }
   return baseId;
